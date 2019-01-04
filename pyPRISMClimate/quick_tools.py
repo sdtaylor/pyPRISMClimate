@@ -19,14 +19,14 @@ def get_prism_dailys(variable,
             End date to download in the format YYYY-MM-DD. Note min and max
             are inclusive. 
             
-        dates : list of python datetimes
+        dates : list of python datetimes, optional
             Specific dates to download, should be a list of python datetimes.           
             years and months parameters are ignored if this is set. 
         
-        dest_path : str
+        dest_path : str, optional
             Folder to download to, defaults to the current working directory.
         
-        keep_zip : bool
+        keep_zip : bool, optional
             Keeps the originally downloaded zip files, default True
     
     """
@@ -53,13 +53,13 @@ def get_prism_daily_single(variable,
         date : str
             The date to download in the format YYYY-MM-DD
         
-        dest_path : str
+        dest_path : str, optional
             Folder to download to, defaults to the current working directory.
     
-        return_path : bool
+        return_path : bool, optional
             Returns the full path to the final bil file, default False
         
-        keep_zip : bool
+        keep_zip : bool, optional
             Keeps the originally downloaded zip file, default True
     """
     daily = PrismDaily(variable=variable,
@@ -92,15 +92,15 @@ def get_prism_monthlys(variable,
         months : list of integers
             The months to download
             
-        dates : list of python datetimes
+        dates : list of python datetimes, optional
             Specific months to download, should be a list of python datetimes.
             The day for each date should be set to the 1st            
             years and months parameters are ignored if this is set. 
         
-        dest_path : str
+        dest_path : str, optional
             Folder to download to, defaults to the current working directory.
         
-        keep_zip : bool
+        keep_zip : bool, optional
             Keeps the originally downloaded zip files, default True
     """
     monthly = PrismMonthly(variable=variable,
@@ -131,17 +131,17 @@ def get_prism_monthly_single(variable,
         month : int
             The month to download
         
-        date : str
+        date : str, optional
             The date to download as a python datetime. The day should
-            be set to 01.
+            be set to 01. If set than year and month are ignored.
         
-        dest_path : str
+        dest_path : str, optional
             Folder to download to, defaults to the current working directory.
     
-        return_path : bool
+        return_path : bool, optional
             Returns the full path to the final bil file, default False
         
-        keep_zip : bool
+        keep_zip : bool, optional
             Keeps the originally downloaded zip file, default True
     """
     if date is not None:
