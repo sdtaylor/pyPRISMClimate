@@ -16,9 +16,12 @@ class PrismFTP:
         self.user=user
         self.passwd=passwd
         self._folder_file_lists={}
-        self.dest_path = os.path.abspath(dest_path) + '/'
         self.keep_zip = keep_zip
         self.verbose = verbose
+        
+        self.dest_path = os.path.abspath(dest_path) + '/'
+        if not os.path.exists(self.dest_path):
+            raise RuntimeError('Path does not exist: '+self.dest_path)
         
         self.connect()
     
