@@ -3,6 +3,16 @@
 An interface to the PRISM Climate data with functions similar
 to the R package [prism](https://github.com/ropensci/prism)
 
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [API](#api)
+  - [pyPRISMClimate.get_prism_dailys()](#pyprismclimateget_prism_dailys)
+  - [pyPRISMClimate.get_prism_daily_single()](#pyprismclimateget_prism_daily_single)
+  - [pyPRISMClimate.get_prism_monthlys()](#pyprismclimateget_prism_monthlys)
+  - [pyPRISMClimate.get_prism_monthly_single()](#pyprismclimateget_prism_monthly_single)
+- [Acknowledgments](#acknowledgments)
+
 ## Installation
 
 Requires python 3. No other packages needed.
@@ -11,9 +21,9 @@ Requires python 3. No other packages needed.
 pip install git+git://github.com/sdtaylor/pyPRISMClimate
 ```
 
-## Usage
+## Quick Start
 
-Four primary functions available to get a single date, or series of dates,
+Four primary functions are available to get a single date, or series of dates,
 of either the daily or monthly prism data.
 
 Available variables are tmean, tmin, tmax, or ppt.
