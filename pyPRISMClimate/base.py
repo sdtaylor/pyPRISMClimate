@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import os
 import zipfile
 import time
-import urllib
+import urllib.request
 
 class PrismFTP:
     def __init__(self, 
@@ -94,11 +94,10 @@ class PrismFTP:
                 urllib.request.urlretrieve(download_path, dest_path)
             except:
                 if attempt==num_attempts:
-                    return 1
+                    raise
                 else:
                     time.sleep(30)
                     continue
-            return 0
     
     def _local_bil_filename(self, date):
         """
