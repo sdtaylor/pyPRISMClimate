@@ -1,0 +1,18 @@
+language: python
+python:
+    - "3.6"
+
+install:
+    - pip install -e .
+    - pip install codecov -U
+    - pip install pytest-cov -U
+    - pip list
+    
+script:
+    - py.test -v --cov=pyPRISMClimate
+
+after_success:
+    - codecov
+
+notifications:
+  email: false
