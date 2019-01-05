@@ -1,11 +1,10 @@
 from .base import PrismDaily, PrismMonthly
 
 def get_prism_dailys(variable,
-                     min_date,
-                     max_date,
+                     min_date=None,
+                     max_date=None,
                      dates=None,
-                     dest_path='./',
-                     keep_zip=True):
+                     **kwargs):
     """Downlaod PRISM Daily data
 
     Parameters:
@@ -34,16 +33,14 @@ def get_prism_dailys(variable,
                        min_date=min_date,
                        max_date=max_date,
                        dates=dates,
-                       dest_path=dest_path,
-                       keep_zip=keep_zip)
+                       **kwargs)
     daily.download()
     daily.close()
 
 def get_prism_daily_single(variable,
                            date,
-                           dest_path='./',
                            return_path=False,
-                           keep_zip=True):
+                           **kwargs):
     """Download data for a single day
     
     Parameters:
@@ -65,8 +62,7 @@ def get_prism_daily_single(variable,
     daily = PrismDaily(variable=variable,
                        min_date=date,
                        max_date=date,
-                       dest_path=dest_path,
-                       keep_zip=keep_zip)
+                       **kwargs)
     daily.download()
     daily.close()
     
@@ -75,11 +71,10 @@ def get_prism_daily_single(variable,
     
     
 def get_prism_monthlys(variable,
-                       years,
-                       months,
+                       years=None,
+                       months=None,
                        dates=None,
-                       dest_path='./',
-                       keep_zip=True):
+                       **kwargs):
     """Download monthly PRISM data
     
     Parameters:
@@ -107,18 +102,16 @@ def get_prism_monthlys(variable,
                            years=years,
                            months=months,
                            dates=dates,
-                           dest_path=dest_path,
-                           keep_zip=keep_zip)
+                           **kwargs)
     monthly.download()
     monthly.close()
     
 def get_prism_monthly_single(variable,
-                             year,
-                             month,
+                             year=None,
+                             month=None,
                              date=None,
-                             dest_path='./',
                              return_path=False,
-                             keep_zip=True):
+                             **kwargs):
     """Download data for a single day
     
     Parameters:
@@ -151,8 +144,7 @@ def get_prism_monthly_single(variable,
                            years=[year],
                            months=[month],
                            dates=date,
-                           dest_path=dest_path,
-                           keep_zip=keep_zip)
+                           **kwargs)
     monthly.download()
     monthly.close()
     
