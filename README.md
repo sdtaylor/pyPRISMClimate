@@ -12,6 +12,7 @@ to the R package [prism](https://github.com/ropensci/prism)
   - [pyPRISMClimate.get_prism_monthlys()](#pyprismclimateget_prism_monthlys)
   - [pyPRISMClimate.get_prism_monthly_single()](#pyprismclimateget_prism_monthly_single)
   - [pyPRISMClimate.get_prism_normals()](#pyprismclimateget_prism_normals)
+  - [pyPRISMClimate.utils.prism_iterator()](#pyprismclimateutilsprism_iterator)
 - [Acknowledgments](#acknowledgments)
 
 ## Installation
