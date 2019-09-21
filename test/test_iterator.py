@@ -33,7 +33,7 @@ def test_full_iterator(tmpdir):
     for f in prism_filenames:
         Path(tmpdir + f).touch()
     
-    prism_metadata = pyPRISMClimate.utils.prism_iterator(tmpdir)
+    prism_metadata = pyPRISMClimate.utils.prism_iterator(str(tmpdir))
     
     # if all are parsable=True it means the metadata was fully parsed
     assert all([f['parsable'] for f in prism_metadata])
