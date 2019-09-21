@@ -12,23 +12,36 @@ def prism_md(filename):
     Returns:
         dictionary of metadata
         
-        {'variable':'tmean':
+        {'variable':'tmean',
          'type':monthly,
-         'status':'stable':
+         'status':'stable',
          'date':'2017-01-01',
          'date_details':{'month':1,
                          'year':2017'}
          }
     """
+    md = {'variable':None,
+          'type':None,
+          'status':None,
+          'date':None,
+          'date_details':None,
+          'parsable':None,
+          'parse_failue':None}
+    
+    if not 'PRISM' in filename:
+        md['parsable'] = False
+        md['parse_failue'] = 'Not a PRISM bil file'
+        return md
+    
     # Cutoff any extensions and get the 6 filename parts
     #    0    1    2       3     4    5
     # PRISM_tmax_stable_4kmM2_201601_bil.zip
     filename_parts = filename.split('.')[0].split('_')
     
     if len(filename_parts) != 6:
-        raise ValueError('Unknown filename format')
-    
-    md = {}
+        md['parsable'] = False
+        md['parse_failue'] = 'Unknown filename format'
+        return md
     
     md['variable'] = filename_parts[1]
     md['status'] = filename_parts[2]
@@ -40,7 +53,9 @@ def prism_md(filename):
         d = datetime.strptime(filename_parts[4], '%Y%m')
         md['type'] = 'monthly'
     except:
-        raise ValueError('Unknown timescale')
+        md['parsable'] = False
+        md['parse_failue'] = 'Unknown PRISM file date format'
+        return md
     
     md['date'] = str(d.date())
     
@@ -52,6 +67,7 @@ def prism_md(filename):
         md['date_details'] = {'month': d.month,
                               'year' : d.year}
 
+    md['parsable'] = True
     return md
 
 def prism_iterator(path):
