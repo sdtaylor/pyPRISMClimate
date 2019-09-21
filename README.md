@@ -24,7 +24,7 @@ pip install git+git://github.com/sdtaylor/pyPRISMClimate
 
 ## Quick Start
 
-Four primary functions are available to get a single date, or series of dates,
+Five primary functions are available to get a single date, or series of dates,
 of either the daily or monthly prism data.
 
 Available variables are tmean, tmin, tmax, or ppt.
@@ -55,6 +55,102 @@ get_prism_normals(variable = 'tmean', resolution = '800m', months=[1,2,3],
 # Get the 30 year annual temperature at 4km resolution.
 get_prism_normals(variable = 'tmean', resolution = '4km', annual=True,
                   dest_path = './')
+
+```
+
+If you end up with many files to work with you can use the included iterator
+which returns metadata extracted from the PRISM filenames.
+```
+from pyPRISMClimate.utils import prism_iterator
+
+# Assuming the files in the prism_ppt folder are:
+# PRISM_ppt_stable_4kmD2_20010520_bil.bil
+# PRISM_ppt_stable_4kmD2_20010521_bil.bil
+# PRISM_ppt_stable_4kmD2_20010522_bil.bil
+
+prism_iterator('prism_ppt')
+
+[{'variable': 'ppt',
+  'type': 'daily',
+  'status': 'stable',
+  'date': '2001-04-20',
+  'date_details': {'day': 20, 'month': 4, 'year': 2001},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_ppt_stable_4kmD2_20010520_bil.bil',
+  'full_path': './prism_ppt/PRISM_ppt_stable_4kmD2_20010520_bil.bil'},
+  
+  {'variable': 'ppt',
+  'type': 'daily',
+  'status': 'stable',
+  'date': '2001-04-21',
+  'date_details': {'day': 21, 'month': 4, 'year': 2001},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_ppt_stable_4kmD2_20010521_bil.bil',
+  'full_path': './prism_ppt/PRISM_ppt_stable_4kmD2_20010521_bil.bil'},
+  
+  {'variable': 'ppt',
+  'type': 'daily',
+  'status': 'stable',
+  'date': '2001-04-22',
+  'date_details': {'day': 22, 'month': 4, 'year': 2001},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_ppt_stable_4kmD2_20010522_bil.bil',
+  'full_path': './prism_ppt/PRISM_ppt_stable_4kmD2_20010522_bil.bil'}]
+
+
+# Using recursive will search in nested directories. Such as:
+# PRISM/
+# PRISM/daily
+# PRISM/daily/2001
+# PRISM/daily/2002
+# PRISM/monthly
+# PRISM/monthly/2004
+# PRISM/monthly/2005
+
+prism_iterator('prism_ppt', recursive = True)
+
+[{'variable': 'tmean',
+  'type': 'monthly',
+  'status': 'stable',
+  'date': '2005-01-01',
+  'date_details': {'month': 1, 'year': 2005},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_tmean_stable_4kmM2_200501_bil.bil',
+  'full_path': './PRISM/monthly/2005/PRISM_tmean_stable_4kmM2_200501_bil.bil'},
+ {'variable': 'tmean',
+  'type': 'monthly',
+  'status': 'stable',
+  'date': '2005-02-01',
+  'date_details': {'month': 2, 'year': 2005},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_tmean_stable_4kmM2_200502_bil.bil',
+  'full_path': './PRISM/monthly/2005/PRISM_tmean_stable_4kmM2_200502_bil.bil'},
+ 
+ .....
+ 
+ {'variable': 'ppt',
+  'type': 'daily',
+  'status': 'stable',
+  'date': '2001-04-15',
+  'date_details': {'day': 15, 'month': 4, 'year': 2001},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_ppt_stable_4kmD2_20010415_bil.bil',
+  'full_path': './PRISM/daily/2001/4/PRISM_ppt_stable_4kmD2_20010415_bil.bil'},
+ {'variable': 'ppt',
+  'type': 'daily',
+  'status': 'stable',
+  'date': '2001-04-14',
+  'date_details': {'day': 14, 'month': 4, 'year': 2001},
+  'parsable': True,
+  'parse_failue': None,
+  'bil_filename': 'PRISM_ppt_stable_4kmD2_20010414_bil.bil',
+  'full_path': './PRISM/daily/2001/4/PRISM_ppt_stable_4kmD2_20010414_bil.bil'}]
 
 ```
 
@@ -217,7 +313,24 @@ get_prism_normals(variable = 'tmean', resolution = '4km', annual=True,
         
         keep_zip : bool, optional
             Keeps the originally downloaded zip files, default True
+
+
+### pyPRISMClimate.utils.prism_iterator()
+
+    prism_iterator(path, recursive=False)
+    
+    Returns metadata for all PRISM bil files located in path.
+    
+    Parameters:
+        path : str
+            Path to a folder to search for PRISM files
         
+        recursive : boolean
+            If False (default) only search in the path given, it True
+            then search the full directory tree. The metadata returned
+            will include the full path of each file regardless.
+    
+    Returns: list of dictionaries
 ## Acknowledgments
 
 Development of this software was funded by
