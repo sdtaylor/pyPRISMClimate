@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+from glob import glob
 from re import match
 
 def prism_md(filename):
@@ -70,19 +71,28 @@ def prism_md(filename):
     md['parsable'] = True
     return md
 
-def prism_iterator(path):
+def prism_iterator(path, recursive=False):
     """Returns a list of metadata for all PRISM bil files located in path
     
+    Parameters:
+        path : str
+            Path to a folder to search for PRISM files
+        
+        recursive : boolean
+            If False (default) only search in the path given, it True
+            then search the full directory tree. The metadata returned
+            will include the full path of each file regardless.
     """
-    dir_listing = os.listdir(path)
+    dir_listing = glob(path + '/**', recursive=recursive)
     
-    bil_files = [f for f in dir_listing if match('^\S*\.bil$',f)]
+    bil_file_paths = [f for f in dir_listing if match('^\S*\.bil$',f)]
     
     listing = []
-    for f in bil_files:
-        file_md = prism_md(f)
-        file_md['bil_filename'] = f
-        file_md['full_path'] = os.path.join(path, f)
+    for file_path in bil_file_paths:
+        filename = os.path.basename(file_path)
+        file_md = prism_md(filename)
+        file_md['bil_filename'] = filename
+        file_md['full_path'] = file_path
         
         listing.append(file_md)
     
