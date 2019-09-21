@@ -152,7 +152,7 @@ def get_prism_monthly_single(variable,
         return monthly._local_bil_filename(monthly.dates[0])
 
 def get_prism_normals(variable,
-                      resolution=None,
+                      resolution,
                       months=None,
                       annual=False,
                       **kwargs):
