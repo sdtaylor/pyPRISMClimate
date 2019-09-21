@@ -194,8 +194,8 @@ get_prism_normals(variable = 'tmean', resolution = '4km', annual=True,
                       return_path=False,
                       keep_zip=True)
                       
-    Download 30 year normals PRISM data. These are available at either an
-    4km or 800m spatial resolution.
+    Download 30 year normals PRISM data. These are available at either a 4km
+    or 800m spatial resolution.
     
     Parameters:
         variable : str
