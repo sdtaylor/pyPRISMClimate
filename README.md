@@ -11,6 +11,7 @@ to the R package [prism](https://github.com/ropensci/prism)
   - [pyPRISMClimate.get_prism_daily_single()](#pyprismclimateget_prism_daily_single)
   - [pyPRISMClimate.get_prism_monthlys()](#pyprismclimateget_prism_monthlys)
   - [pyPRISMClimate.get_prism_monthly_single()](#pyprismclimateget_prism_monthly_single)
+  - [pyPRISMClimate.get_prism_normals()](#pyprismclimateget_prism_normals)
 - [Acknowledgments](#acknowledgments)
 
 ## Installation
@@ -29,7 +30,9 @@ of either the daily or monthly prism data.
 Available variables are tmean, tmin, tmax, or ppt.
 
 ```
-from pyPRISMClimate import get_prism_monthlys, get_prism_monthly_single, get_prism_dailys, get_prism_daily_single
+from pyPRISMClimate import get_prism_monthlys, get_prism_monthly_single, 
+                    get_prism_dailys, get_prism_daily_single,
+                    get_prism_normals
 
 # Get monthly mean temperature
 get_prism_monthlys(variable='tmean', years=[2017,2018], months=[1,2,3,4], dest_path='/tmp/prism')
@@ -44,6 +47,14 @@ get_prism_dailys('tmax',min_date='2017-01-01', max_date='2017-02-01', dest_path=
 
 # Get the daily minimum temperature for July 1, 2005
 get_prism_daily_single('tmax', '2005-07-07')
+
+# Get the 30 year normal temperature for Jan, Feb, Mar at 800m resolution.
+get_prism_normals(variable = 'tmean', resolution = '800m', months=[1,2,3],
+                  dest_path = './')
+                  
+# Get the 30 year annual temperature at 4km resolution.
+get_prism_normals(variable = 'tmean', resolution = '4km', annual=True,
+                  dest_path = './')
 
 ```
 
@@ -172,7 +183,40 @@ get_prism_daily_single('tmax', '2005-07-07')
         
         keep_zip : bool, optional
             Keeps the originally downloaded zip file, default True
-            
+
+### pyPRISMClimate.get_prism_normals()
+
+    get_prism_normals(variable,
+                      resolution,
+                      months=None,
+                      annual=False,
+                      dest_path='./',
+                      return_path=False,
+                      keep_zip=True)
+                      
+    Download 30 year normals PRISM data. These are available at either a 4km
+    or 800m spatial resolution.
+    
+    Parameters:
+        variable : str
+            Either tmean, tmax, tmin, or ppt
+        
+        resolution : str
+            The spatial resolution, either 4km or 800m.
+        
+        months : list of integers
+            The months to download. If None (the default) all 12 months are 
+            downloaded.
+        
+        annual : boolean
+            Whether to download the annualized normals. If True then months
+            is ignored. False by default.
+        
+        dest_path : str, optional
+            Folder to download to, defaults to the current working directory.
+        
+        keep_zip : bool, optional
+            Keeps the originally downloaded zip files, default True
         
 ## Acknowledgments
 

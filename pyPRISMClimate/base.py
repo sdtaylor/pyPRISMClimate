@@ -244,9 +244,9 @@ class PrismMonthly(PrismFTP):
                 raise TypeError('years must be a list of integer years')
             # months must be [1,2,3,...]
             if not isinstance(self.months, list):
-                raise TypeError('years must be a list of integer years')
+                raise TypeError('months must be a list of integer months')
             if not all(isinstance(m, int) for m in self.months):
-                raise TypeError('years must be a list of integer years')
+                raise TypeError('months must be a list of integer months')
             
             self.dates = []
             for y in self.years:
@@ -262,3 +262,74 @@ class PrismMonthly(PrismFTP):
         For monthlies this will be YYYYMM
         """
         return date.strftime('%Y%m')
+    
+class PrismNormals(PrismFTP):
+    def __init__(self,
+                 variable,
+                 resolution,
+                 months=None,
+                 annual=False,
+                 **kwargs):
+        """
+        Interface to the normals data.
+        
+        Normals have a simpler file structure that doesn't rely on dates,
+        so two methods below replace the more complex ones of PrismFTP.
+        """
+        super().__init__(**kwargs)
+        self.base_url_dir = 'normals_{r}/{v}/'.format(r=resolution, v=variable)
+        
+        self.variable = variable
+        self.resolution = resolution
+        self.months = months
+        self.annual = annual
+        
+        self._validate_dates()
+        self._validate_variable()
+        
+        if resolution not in ['4km','800m']:
+            raise ValueError('resolution must be either "4km" or "800m", got: {r}'.format(r=resolution))
+        
+    def _validate_dates(self):
+        """
+        Check that months are valid
+        """
+        if self.months is None:
+            self.months = [1,2,3,4,5,6,7,8,9,10,11,12]
+        else:
+            # months must be [1,2,3,...]
+            if not isinstance(self.months, list):
+                raise TypeError('months must be a list of integer months')
+            if not all(isinstance(m, int) for m in self.months):
+                raise TypeError('months must be a list of integer months')
+        
+        # put in leading 0 and convert to str
+        self.months = [str(m) if m >=10 else '0'+str(m) for m in self.months]
+        
+        if self.annual:
+            self.months = ['annual']
+        
+        # dates is used in the PrismFTP class, so keep that consistent here.
+        self.dates = self.months
+    
+    def date_available(self, date):
+        """
+        Supersedes the PrismFTP method which relies on datetime
+        """
+        return date in ['01','02','03','04','05','06','07','08','09','10','11','12','annual']
+    
+    def _get_download_url(self, date):
+        """
+        The full download url
+        Supersedes the PrismFTP methods since normals have a
+        simpler format which rarely gets updated with new data.
+        """
+        filename = 'PRISM_{v}_30yr_normal_{r}M2_{d}_bil.zip'.format(v = self.variable,
+                                                                    r = self.resolution,
+                                                                    d = date)
+        return 'ftp://{host}/{p}/{f}'.format(host = self.host,
+                                             p    = self.base_url_dir,
+                                             f    = filename)
+    
+    def _file_search_string(self, date):
+        pass

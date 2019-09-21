@@ -57,3 +57,17 @@ def test_monthly_series(tmpdir):
     all_present = [os.path.exists(tmpdir.join(f)) for f in to_check]
     
     assert all(all_present)
+
+def test_normals_1_month(tmpdir):
+    pyPRISMClimate.get_prism_normals(variable='ppt',
+                                     resolution='4km',
+                                     months=[6,10],
+                                     dest_path=tmpdir,
+                                     verbose=True)
+    
+    to_check = ['PRISM_ppt_30yr_normal_4kmM2_06_bil.bil',
+                'PRISM_ppt_30yr_normal_4kmM2_10_bil.bil']
+    
+    all_present = [os.path.exists(tmpdir.join(f)) for f in to_check]
+
+    assert all(all_present)
