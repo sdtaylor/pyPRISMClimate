@@ -49,7 +49,7 @@ class PrismFTP:
         self.con.close()
         
     def _validate_variable(self):
-        if self.variable not in ['tmean','ppt','tmax','tmin']:
+        if self.variable not in ['tmean','ppt','tmax','tmin','vpdmin','vpdmax']:
             raise ValueError('unknown variable name: '+self.variable)
 
     def _get_folder_listing(self, folder):

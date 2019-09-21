@@ -28,7 +28,7 @@ pip install git+git://github.com/sdtaylor/pyPRISMClimate
 Five primary functions are available to get a single date, or series of dates,
 of either the daily or monthly prism data.
 
-Available variables are tmean, tmin, tmax, or ppt.
+Available variables are tmean, tmin, tmax, ppt, vpdmin, and vpdmax.
 
 ```
 from pyPRISMClimate import get_prism_monthlys, get_prism_monthly_single, 
@@ -169,7 +169,7 @@ prism_iterator('prism_ppt', recursive = True)
 
     Parameters:
         variable : str
-            Either tmean, tmax, tmin, or ppt
+            Either tmean, tmax, tmin, ppt, vpdmin, or vpdmax.
         
         min_date : str
             Start date to download in the format YYYY-MM-DD
@@ -199,7 +199,7 @@ prism_iterator('prism_ppt', recursive = True)
     
     Parameters:
         variable : str
-            Either tmean, tmax, tmin, or ppt
+            Either tmean, tmax, tmin, ppt, vpdmin, or vpdmax.
         
         date : str
             The date to download in the format YYYY-MM-DD
@@ -226,7 +226,7 @@ prism_iterator('prism_ppt', recursive = True)
     
     Parameters:
         variable : str
-            Either tmean, tmax, tmin, or ppt
+            Either tmean, tmax, tmin, ppt, vpdmin, or vpdmax.
         
         years : list of integers
             The years to download
@@ -260,7 +260,7 @@ prism_iterator('prism_ppt', recursive = True)
     
     Parameters:
         variable : str
-            Either tmean, tmax, tmin, or ppt
+            Either tmean, tmax, tmin, ppt, vpdmin, or vpdmax.
         
         year : int
             The year to download
@@ -296,7 +296,7 @@ prism_iterator('prism_ppt', recursive = True)
     
     Parameters:
         variable : str
-            Either tmean, tmax, tmin, or ppt
+            Either tmean, tmax, tmin, ppt, vpdmin, or vpdmax.
         
         resolution : str
             The spatial resolution, either 4km or 800m.
