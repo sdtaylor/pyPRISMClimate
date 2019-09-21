@@ -1,4 +1,4 @@
-from .base import PrismDaily, PrismMonthly
+from .base import PrismDaily, PrismMonthly, PrismNormals
 
 def get_prism_dailys(variable,
                      min_date=None,
@@ -150,3 +150,39 @@ def get_prism_monthly_single(variable,
     
     if return_path:
         return monthly._local_bil_filename(monthly.dates[0])
+
+def get_prism_normals(variable,
+                      resolution=None,
+                      months=None,
+                      annual=False,
+                      **kwargs):
+    """Download 30 year normals PRISM data
+    
+    Parameters:
+        variable : str
+            Either tmean, tmax, tmin, or ppt
+        
+        resolution : str
+            The spatial resolution, either 4km or 800m.
+        
+        months : list of integers
+            The months to download. If None (the default) all 12 months are 
+            downloaded.
+        
+        annual : boolean
+            Whether to download the annualized normals. If True then months
+            is ignored. False by default.
+        
+        dest_path : str, optional
+            Folder to download to, defaults to the current working directory.
+        
+        keep_zip : bool, optional
+            Keeps the originally downloaded zip files, default True
+    """
+    normals = PrismNormals(variable=variable,
+                           resolution=resolution,
+                           months=months,
+                           annual=annual,
+                           **kwargs)
+    normals.download()
+    normals.close()
