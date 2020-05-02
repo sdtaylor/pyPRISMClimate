@@ -40,28 +40,83 @@ def prism_md(filename):
     filename_parts = filename.split('.')[0].split('_')
     
     if len(filename_parts) != 6:
-        md['parsable'] = False
-        md['parse_failue'] = 'Unknown filename format'
-        return md
+        if 'normal' in filename:
+            '30 year normals data do not have 6 parts'
+            pass
+        else:
+            'otherwise unknown'
+            md['parsable'] = False
+            md['parse_failue'] = 'Unknown filename format'
+            return md
     
     md['variable'] = filename_parts[1]
-    md['status'] = filename_parts[2]
     
+    if 'normal' in filename:
+        md['status'] = 'stable'
+    else:
+        md['status'] = filename_parts[2]
+    
+    ################
+    # Extract the date.
+    date_parsed = False
+        
+    # daily data?
     try:
         if len(filename_parts[4]) != 8:
-            raise ValueError
+            raise ValueError()
         d = datetime.strptime(filename_parts[4], '%Y%m%d')
         md['type'] = 'daily'
-    except ValueError:
-        if len(filename_parts[4]) != 6:
-            raise ValueError
-        d = datetime.strptime(filename_parts[4], '%Y%m')
-        md['type'] = 'monthly'
+        date_parsed = True
     except:
+        pass
+    
+    # monthly?
+    if not date_parsed:
+        try:
+            if len(filename_parts[4]) != 6:
+                raise ValueError()
+            d = datetime.strptime(filename_parts[4], '%Y%m')
+            md['type'] = 'monthly'
+            date_parsed = True
+        except:
+            pass
+    
+    # monthly normals?
+    # insert the year 2000 here because it should be something instead of nothing.
+    if not date_parsed:
+        try:
+            if filename_parts[3] == 'normal':
+                d = datetime.strptime('2000' + filename_parts[5], '%Y%m')
+                md['type'] = 'monthly_normals'
+                date_parsed = True
+            else:
+                raise ValueError()
+        except:
+            pass
+    
+    # annual normals?
+    # insert jan 1, 2000 here because it should be something intead of nothing
+    if not date_parsed:
+        try:
+            if filename_parts[3] == 'normal' and filename_parts[5] == 'annual':
+                d = datetime.strptime('20000101', '%Y%m%d')
+                md['type'] = 'annual_normals'
+                date_parsed = True
+            else:
+                raise ValueError()
+        except:
+            pass
+    
+    # giving up
+    if not date_parsed:
         md['parsable'] = False
         md['parse_failue'] = 'Unknown PRISM file date format'
         return md
     
+    # The 'date' etnry should be a parsable YYYY-MM-DD date string to be 
+    # consistent among all filetypes.
+    # Even though monthly & annual data do not have exact dates. The details 
+    # are in 'date_details'.
     md['date'] = str(d.date())
     
     if md['type']=='daily':
@@ -71,6 +126,10 @@ def prism_md(filename):
     elif md['type']=='monthly':
         md['date_details'] = {'month': d.month,
                               'year' : d.year}
+    elif md['type']=='monthly_normals':
+        md['date_details'] = {'month': d.month}
+    elif md['type']=='annual_normals':
+        md['date_details'] = {}
 
     md['parsable'] = True
     return md

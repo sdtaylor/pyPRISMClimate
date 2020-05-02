@@ -88,6 +88,24 @@ filename_test_cases.append(('PRISM_tmean_stable_4kmM3_201412_bil.bil',
                                   'parsable':True,
                                   'parse_failue':None}))
 
+filename_test_cases.append(('PRISM_ppt_30yr_normal_4kmM2_06_bil.bil',
+                                 {'variable':'ppt',
+                                  'type':'monthly_normals',
+                                  'status':'stable',
+                                  'date':'2000-06-01',
+                                  'date_details':{'month': 6},
+                                  'parsable':True,
+                                  'parse_failue':None}))
+
+filename_test_cases.append(('PRISM_ppt_30yr_normal_4kmM2_annual_bil.bil',
+                                 {'variable':'ppt',
+                                  'type':'annual_normals',
+                                  'status':'stable',
+                                  'date':'2000-01-01',
+                                  'date_details':{},
+                                  'parsable':True,
+                                  'parse_failue':None}))
+
 """
 Bad filenames
 """
