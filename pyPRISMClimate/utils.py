@@ -146,7 +146,7 @@ def prism_iterator(path, recursive=False):
             then search the full directory tree. The metadata returned
             will include the full path of each file regardless.
     """
-    dir_listing = glob(path + '/**', recursive=recursive)
+    dir_listing = glob(path + os.sep + '**', recursive=recursive)
     
     bil_file_paths = [f for f in dir_listing if match('^\S*\.bil$',f)]
     
