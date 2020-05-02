@@ -48,9 +48,13 @@ def prism_md(filename):
     md['status'] = filename_parts[2]
     
     try:
+        if len(filename_parts[4]) != 8:
+            raise ValueError
         d = datetime.strptime(filename_parts[4], '%Y%m%d')
         md['type'] = 'daily'
     except ValueError:
+        if len(filename_parts[4]) != 6:
+            raise ValueError
         d = datetime.strptime(filename_parts[4], '%Y%m')
         md['type'] = 'monthly'
     except:

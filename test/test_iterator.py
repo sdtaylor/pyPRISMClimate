@@ -79,6 +79,14 @@ filename_test_cases.append(('PRISM_tmax_provisional_4kmD1_20170101_bil.bil',
                                   'date_details':{'day' : 1, 'month': 1, 'year': 2017},
                                   'parsable':True,
                                   'parse_failue':None}))
+filename_test_cases.append(('PRISM_tmean_stable_4kmM3_201412_bil.bil',
+                                 {'variable':'tmean',
+                                  'type':'monthly',
+                                  'status':'stable',
+                                  'date':'2014-12-01',
+                                  'date_details':{'month': 12, 'year': 2014},
+                                  'parsable':True,
+                                  'parse_failue':None}))
 
 """
 Bad filenames
