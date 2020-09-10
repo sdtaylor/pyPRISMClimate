@@ -23,6 +23,7 @@ def prism_md(filename):
     """
     md = {'variable':None,
           'type':None,
+          'resolution':None,
           'status':None,
           'date':None,
           'date_details':None,
@@ -36,7 +37,8 @@ def prism_md(filename):
     
     # Cutoff any extensions and get the 6 filename parts
     #    0    1    2       3     4    5
-    # PRISM_tmax_stable_4kmM2_201601_bil.zip
+    # PRISM_tmax_stable_4kmM2_201601_bil.zip       # monthly/daily files
+    # PRISM_tmax_30yr_normal_800mM2_05_bil.bil     # Normals files
     filename_parts = filename.split('.')[0].split('_')
     
     if len(filename_parts) != 6:
@@ -56,6 +58,11 @@ def prism_md(filename):
     else:
         md['status'] = filename_parts[2]
     
+    if '4km' in filename:
+        md['resolution'] = '4km'
+    elif '800m' in filename:
+        md['resolution'] = '800m'
+        
     ################
     # Extract the date.
     date_parsed = False
@@ -113,7 +120,7 @@ def prism_md(filename):
         md['parse_failue'] = 'Unknown PRISM file date format'
         return md
     
-    # The 'date' etnry should be a parsable YYYY-MM-DD date string to be 
+    # The 'date' entry should be a parsable YYYY-MM-DD date string to be 
     # consistent among all filetypes.
     # Even though monthly & annual data do not have exact dates. The details 
     # are in 'date_details'.
