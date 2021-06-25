@@ -1,3 +1,5 @@
+from .version import __version__
+
 from .quick_tools import (
         get_prism_dailys,
         get_prism_daily_single,
