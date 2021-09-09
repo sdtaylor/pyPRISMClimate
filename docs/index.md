@@ -1,7 +1,7 @@
 # pyPRISMClimate
 
-An interface to the PRISM Climate data with functions similar
-to the R package [prism](https://github.com/ropensci/prism)
+An interface to the PRISM Climate data with functions similar to the R package [prism](https://github.com/ropensci/prism)
+
 
 ## Installation
 
@@ -16,10 +16,6 @@ Install the latest version directly from GitHub:
 ```
 pip install git+git://github.com/sdtaylor/pyPRISMClimate
 ```
-
-## Documentation
-
-[https://sdtaylor.github.io/pyPRISMClimate](https://sdtaylor.github.io/pyPRISMClimate)
 
 ## Acknowledgments
 

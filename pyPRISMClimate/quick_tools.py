@@ -7,26 +7,27 @@ def get_prism_dailys(variable,
                      **kwargs):
     """Downlaod PRISM Daily data
 
-    Parameters:
-        variable : str
-            Either tmean, tmax, tmin, or ppt
+    Parameters
+    ----------
+    variable : str
+        Either tmean, tmax, tmin, or ppt
         
-        min_date : str
-            Start date to download in the format YYYY-MM-DD
+    min_date : str
+        Start date to download in the format YYYY-MM-DD
         
-        max_date : str
-            End date to download in the format YYYY-MM-DD. Note min and max
-            are inclusive. 
-            
-        dates : list of python datetimes, optional
-            Specific dates to download, should be a list of python datetimes.           
-            years and months parameters are ignored if this is set. 
+    max_date : str
+        End date to download in the format YYYY-MM-DD. Note min and max
+        are inclusive. 
         
-        dest_path : str, optional
-            Folder to download to, defaults to the current working directory.
-        
-        keep_zip : bool, optional
-            Keeps the originally downloaded zip files, default True
+    dates : list of python datetimes, optional
+        Specific dates to download, should be a list of python datetimes.           
+        years and months parameters are ignored if this is set. 
+    
+    dest_path : str, optional
+        Folder to download to, defaults to the current working directory.
+    
+    keep_zip : bool, optional
+        Keeps the originally downloaded zip files, default True
     
     """
     daily = PrismDaily(variable=variable,
@@ -43,21 +44,22 @@ def get_prism_daily_single(variable,
                            **kwargs):
     """Download data for a single day
     
-    Parameters:
-        variable : str
-            Either tmean, tmax, tmin, or ppt
-        
-        date : str
-            The date to download in the format YYYY-MM-DD
-        
-        dest_path : str, optional
-            Folder to download to, defaults to the current working directory.
+    Parameters
+    ----------
+    variable : str
+        Either tmean, tmax, tmin, or ppt
     
-        return_path : bool, optional
-            Returns the full path to the final bil file, default False
-        
-        keep_zip : bool, optional
-            Keeps the originally downloaded zip file, default True
+    date : str
+        The date to download in the format YYYY-MM-DD
+    
+    dest_path : str, optional
+        Folder to download to, defaults to the current working directory.
+
+    return_path : bool, optional
+        Returns the full path to the final bil file, default False
+    
+    keep_zip : bool, optional
+        Keeps the originally downloaded zip file, default True
     """
     daily = PrismDaily(variable=variable,
                        min_date=date,
@@ -77,26 +79,27 @@ def get_prism_monthlys(variable,
                        **kwargs):
     """Download monthly PRISM data
     
-    Parameters:
-        variable : str
-            Either tmean, tmax, tmin, or ppt
+    Parameters
+    ----------
+    variable : str
+        Either tmean, tmax, tmin, or ppt
+    
+    years : list of integers
+        The years to download
         
-        years : list of integers
-            The years to download
+    months : list of integers
+        The months to download
         
-        months : list of integers
-            The months to download
-            
-        dates : list of python datetimes, optional
-            Specific months to download, should be a list of python datetimes.
-            The day for each date should be set to the 1st            
-            years and months parameters are ignored if this is set. 
+    dates : list of python datetimes, optional
+        Specific months to download, should be a list of python datetimes.
+        The day for each date should be set to the 1st            
+        years and months parameters are ignored if this is set. 
         
-        dest_path : str, optional
-            Folder to download to, defaults to the current working directory.
+    dest_path : str, optional
+        Folder to download to, defaults to the current working directory.
         
-        keep_zip : bool, optional
-            Keeps the originally downloaded zip files, default True
+    keep_zip : bool, optional
+        Keeps the originally downloaded zip files, default True
     """
     monthly = PrismMonthly(variable=variable,
                            years=years,
@@ -114,28 +117,29 @@ def get_prism_monthly_single(variable,
                              **kwargs):
     """Download data for a single day
     
-    Parameters:
-        variable : str
-            Either tmean, tmax, tmin, or ppt
-        
-        year : int
-            The year to download
-        
-        month : int
-            The month to download
-        
-        date : str, optional
-            The date to download as a python datetime. The day should
-            be set to 01. If set than year and month are ignored.
-        
-        dest_path : str, optional
-            Folder to download to, defaults to the current working directory.
+    Parameters
+    ----------
+    variable : str
+        Either tmean, tmax, tmin, or ppt
     
-        return_path : bool, optional
-            Returns the full path to the final bil file, default False
-        
-        keep_zip : bool, optional
-            Keeps the originally downloaded zip file, default True
+    year : int
+        The year to download
+    
+    month : int
+        The month to download
+    
+    date : str, optional
+        The date to download as a python datetime. The day should
+        be set to 01. If set than year and month are ignored.
+    
+    dest_path : str, optional
+        Folder to download to, defaults to the current working directory.
+
+    return_path : bool, optional
+        Returns the full path to the final bil file, default False
+    
+    keep_zip : bool, optional
+        Keeps the originally downloaded zip file, default True
     """
     if date is not None:
         date = [date]
@@ -158,26 +162,27 @@ def get_prism_normals(variable,
                       **kwargs):
     """Download 30 year normals PRISM data
     
-    Parameters:
-        variable : str
-            Either tmean, tmax, tmin, or ppt
-        
-        resolution : str
-            The spatial resolution, either 4km or 800m.
-        
-        months : list of integers
-            The months to download. If None (the default) all 12 months are 
-            downloaded.
-        
-        annual : boolean
-            Whether to download the annualized normals. If True then months
-            is ignored. False by default.
-        
-        dest_path : str, optional
-            Folder to download to, defaults to the current working directory.
-        
-        keep_zip : bool, optional
-            Keeps the originally downloaded zip files, default True
+    Parameters
+    ----------
+    variable : str
+        Either tmean, tmax, tmin, or ppt
+    
+    resolution : str
+        The spatial resolution, either 4km or 800m.
+    
+    months : list of integers
+        The months to download. If None (the default) all 12 months are 
+        downloaded.
+    
+    annual : boolean
+        Whether to download the annualized normals. If True then months
+        is ignored. False by default.
+    
+    dest_path : str, optional
+        Folder to download to, defaults to the current working directory.
+    
+    keep_zip : bool, optional
+        Keeps the originally downloaded zip files, default True
     """
     normals = PrismNormals(variable=variable,
                            resolution=resolution,

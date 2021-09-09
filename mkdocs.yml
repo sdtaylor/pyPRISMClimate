@@ -1,0 +1,12 @@
+site_name: pyPRISMClimate
+use_directory_urls: false
+theme: "material"
+
+nav:
+    - About: 'index.md'
+    - Tutorial: 'tutorial.md'
+    - API Reference: 'api.md'
+    - 'GitHub Repo': 'https://github.com/sdtaylor/pyPRISMClimate'
+
+plugins:
+    - mkdocstrings
