@@ -6,20 +6,22 @@ from re import match
 def prism_md(filename):
     """Extract metdata from a PRISM filename
     
-    Parameters:
-        filename : str
-            A PRISM filename, ie. PRISM_tmax_stable_4kmM2_201601_bil.zip
+    Parameters
+    ----------
+    filename : str
+        A PRISM filename, ie. PRISM_tmax_stable_4kmM2_201601_bil.zip
     
-    Returns:
-        dictionary of metadata
-        
-        {'variable':'tmean',
-         'type':monthly,
-         'status':'stable',
-         'date':'2017-01-01',
-         'date_details':{'month':1,
-                         'year':2017'}
-         }
+    Returns
+    -------
+    dictionary of metadata
+    
+    {'variable':'tmean',
+     'type':monthly,
+     'status':'stable',
+     'date':'2017-01-01',
+     'date_details':{'month':1,
+                     'year':2017'}
+     }
     """
     md = {'variable':None,
           'type':None,
@@ -144,14 +146,21 @@ def prism_md(filename):
 def prism_iterator(path, recursive=False):
     """Returns a list of metadata for all PRISM bil files located in path
     
-    Parameters:
-        path : str
-            Path to a folder to search for PRISM files
-        
-        recursive : boolean
-            If False (default) only search in the path given, it True
-            then search the full directory tree. The metadata returned
-            will include the full path of each file regardless.
+    Parameters
+    ----------
+    path : str
+        Path to a folder to search for PRISM files
+    
+    recursive : boolean
+        If False (default) only search in the path given, it True
+        then search the full directory tree. The metadata returned
+        will include the full path of each file regardless.
+
+    Returns
+    -------
+    list
+        List of dictionaries where each entry contains metadata for a single 
+        PRISM bil file.
     """
     dir_listing = glob('{p}{s}**'.format(p=path,s=os.sep),
                        recursive=recursive)
