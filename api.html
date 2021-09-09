@@ -1,0 +1,934 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>API Reference - pyPRISMClimate</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="pyPRISMClimate" class="md-header__button md-logo" aria-label="pyPRISMClimate" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pyPRISMClimate
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="pyPRISMClimate" class="md-nav__button md-logo" aria-label="pyPRISMClimate" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    pyPRISMClimate
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="api.html" class="md-nav__link md-nav__link--active">
+        API Reference
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools" class="md-nav__link">
+    pyPRISMClimate.quick_tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_daily_single" class="md-nav__link">
+    get_prism_daily_single()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_dailys" class="md-nav__link">
+    get_prism_dailys()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_monthly_single" class="md-nav__link">
+    get_prism_monthly_single()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_monthlys" class="md-nav__link">
+    get_prism_monthlys()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_normals" class="md-nav__link">
+    get_prism_normals()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.utils" class="md-nav__link">
+    utils
+  </a>
+  
+    <nav class="md-nav" aria-label="utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyPRISMClimate.utils.prism_iterator" class="md-nav__link">
+    prism_iterator()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/sdtaylor/pyPRISMClimate" class="md-nav__link">
+        GitHub Repo
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools" class="md-nav__link">
+    pyPRISMClimate.quick_tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_daily_single" class="md-nav__link">
+    get_prism_daily_single()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_dailys" class="md-nav__link">
+    get_prism_dailys()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_monthly_single" class="md-nav__link">
+    get_prism_monthly_single()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_monthlys" class="md-nav__link">
+    get_prism_monthlys()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.quick_tools.get_prism_normals" class="md-nav__link">
+    get_prism_normals()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyPRISMClimate.utils" class="md-nav__link">
+    utils
+  </a>
+  
+    <nav class="md-nav" aria-label="utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pyPRISMClimate.utils.prism_iterator" class="md-nav__link">
+    prism_iterator()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="api-reference">API Reference</h1>
+
+
+  <div class="doc doc-object doc-module">
+
+<a id="pyPRISMClimate.quick_tools"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.quick_tools.get_prism_daily_single">
+<code class="highlight language-python"><span class="n">get_prism_daily_single</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">return_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Download data for a single day</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>variable</code></td>
+        <td><code>str</code></td>
+        <td><p>Either tmean, tmax, tmin, or ppt</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>date</code></td>
+        <td><code>str</code></td>
+        <td><p>The date to download in the format YYYY-MM-DD</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>dest_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Folder to download to, defaults to the current working directory.</p></td>
+        <td><code>&#39;the&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>return_path</code></td>
+        <td><code>bool</code></td>
+        <td><p>Returns the full path to the final bil file, default False</p></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>keep_zip</code></td>
+        <td><code>bool</code></td>
+        <td><p>Keeps the originally downloaded zip file, default True</p></td>
+        <td><code>&#39;True&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.quick_tools.get_prism_dailys">
+<code class="highlight language-python"><span class="n">get_prism_dailys</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">min_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Downlaod PRISM Daily data</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>variable</code></td>
+        <td><code>str</code></td>
+        <td><p>Either tmean, tmax, tmin, or ppt</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>min_date</code></td>
+        <td><code>str</code></td>
+        <td><p>Start date to download in the format YYYY-MM-DD</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>max_date</code></td>
+        <td><code>str</code></td>
+        <td><p>End date to download in the format YYYY-MM-DD. Note min and max
+are inclusive.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>dates</code></td>
+        <td><code>list of python datetimes</code></td>
+        <td><p>Specific dates to download, should be a list of python datetimes.         <br />
+years and months parameters are ignored if this is set.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>dest_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Folder to download to, defaults to the current working directory.</p></td>
+        <td><code>&#39;the&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>keep_zip</code></td>
+        <td><code>bool</code></td>
+        <td><p>Keeps the originally downloaded zip files, default True</p></td>
+        <td><code>&#39;True&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.quick_tools.get_prism_monthly_single">
+<code class="highlight language-python"><span class="n">get_prism_monthly_single</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Download data for a single day</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>variable</code></td>
+        <td><code>str</code></td>
+        <td><p>Either tmean, tmax, tmin, or ppt</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>year</code></td>
+        <td><code>int</code></td>
+        <td><p>The year to download</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>month</code></td>
+        <td><code>int</code></td>
+        <td><p>The month to download</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>date</code></td>
+        <td><code>str</code></td>
+        <td><p>The date to download as a python datetime. The day should
+be set to 01. If set than year and month are ignored.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>dest_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Folder to download to, defaults to the current working directory.</p></td>
+        <td><code>&#39;the&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>return_path</code></td>
+        <td><code>bool</code></td>
+        <td><p>Returns the full path to the final bil file, default False</p></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>keep_zip</code></td>
+        <td><code>bool</code></td>
+        <td><p>Keeps the originally downloaded zip file, default True</p></td>
+        <td><code>&#39;True&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.quick_tools.get_prism_monthlys">
+<code class="highlight language-python"><span class="n">get_prism_monthlys</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">months</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Download monthly PRISM data</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>variable</code></td>
+        <td><code>str</code></td>
+        <td><p>Either tmean, tmax, tmin, or ppt</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>years</code></td>
+        <td><code>list of integers</code></td>
+        <td><p>The years to download</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>months</code></td>
+        <td><code>list of integers</code></td>
+        <td><p>The months to download</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>dates</code></td>
+        <td><code>list of python datetimes</code></td>
+        <td><p>Specific months to download, should be a list of python datetimes.
+The day for each date should be set to the 1st          <br />
+years and months parameters are ignored if this is set.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>dest_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Folder to download to, defaults to the current working directory.</p></td>
+        <td><code>&#39;the&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>keep_zip</code></td>
+        <td><code>bool</code></td>
+        <td><p>Keeps the originally downloaded zip files, default True</p></td>
+        <td><code>&#39;True&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.quick_tools.get_prism_normals">
+<code class="highlight language-python"><span class="n">get_prism_normals</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">months</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">annual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+</h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Download 30 year normals PRISM data</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>variable</code></td>
+        <td><code>str</code></td>
+        <td><p>Either tmean, tmax, tmin, or ppt</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>resolution</code></td>
+        <td><code>str</code></td>
+        <td><p>The spatial resolution, either 4km or 800m.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>months</code></td>
+        <td><code>list of integers</code></td>
+        <td><p>The months to download. If None (the default) all 12 months are 
+downloaded.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>annual</code></td>
+        <td><code>boolean</code></td>
+        <td><p>Whether to download the annualized normals. If True then months
+is ignored. False by default.</p></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>dest_path</code></td>
+        <td><code>str</code></td>
+        <td><p>Folder to download to, defaults to the current working directory.</p></td>
+        <td><code>&#39;the&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>keep_zip</code></td>
+        <td><code>bool</code></td>
+        <td><p>Keeps the originally downloaded zip files, default True</p></td>
+        <td><code>&#39;True&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-module">
+
+
+
+<h2 class="doc doc-heading" id="pyPRISMClimate.utils">
+        <code>pyPRISMClimate.utils</code>
+
+
+
+</h2>
+
+    <div class="doc doc-contents first">
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 class="doc doc-heading" id="pyPRISMClimate.utils.prism_iterator">
+<code class="highlight language-python"><span class="n">prism_iterator</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns a list of metadata for all PRISM bil files located in path</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to a folder to search for PRISM files</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>recursive</code></td>
+        <td><code>boolean</code></td>
+        <td><p>If False (default) only search in the path given, it True
+then search the full directory tree. The metadata returned
+will include the full path of each file regardless.</p></td>
+        <td><code>False</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>list</code></td>
+      <td><p>List of dictionaries where each entry contains metadata for a single 
+PRISM bil file.</p></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="tutorial.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tutorial" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Tutorial
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>
